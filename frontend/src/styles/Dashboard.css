@@ -1,0 +1,51 @@
+.stats-overview .stats-card {
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stats-overview .stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.stats-card h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+.stats-card .card-title {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.stats-card .card-text {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.mood-chart {
+  height: 300px;
+  margin-top: 1rem;
+}
+
+.quick-actions {
+  margin-top: 2rem;
+}
+
+.quick-actions .btn {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.streak-indicator {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 20px;
+  margin-top: 1rem;
+}

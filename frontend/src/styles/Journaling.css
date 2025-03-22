@@ -1,0 +1,46 @@
+.journaling-page {
+  padding: 40px 0;
+}
+
+.journal-card,
+.history-card {
+  background-color: var(--secondary-color);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.journal-card textarea {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  resize: vertical;
+}
+
+.journal-card textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(124, 152, 133, 0.25);
+}
+
+.entry-item {
+  padding: 1rem 0;
+}
+
+.entry-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mood-badge {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+}
+
+.entry-notes {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  margin: 0;
+  white-space: pre-wrap;
+}
