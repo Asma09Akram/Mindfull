@@ -39,6 +39,7 @@ import { Button, Form, Container /* other components *//* from 'react-bootstrap'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -50,14 +51,13 @@ import {
 } from 'react-bootstrap';
 
 // For react-router-dom
-import { BrowserRouter } from 'react-router-dom';
+//import { BrowserRouter } from 'react-router-dom';
 
 // Create root and render app
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+      <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  
 );
