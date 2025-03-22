@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
-
+/*
 export function useAuth() {
   return useContext(AuthContext);
 }
@@ -75,3 +76,48 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+  */
+// const AuthContext = createContext(null);
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
+
+  const login = async (email, password) => {
+    try {
+      // Add your login logic here
+      setCurrentUser({ email });
+      navigate('/dashboard');
+      return true;
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
+  };
+
+  const logout = () => {
+    setCurrentUser(null);
+    navigate('/login');
+  };
+
+  const value = {
+    currentUser,
+    login,
+    logout,
+    setCurrentUser
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

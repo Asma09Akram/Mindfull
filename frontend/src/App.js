@@ -88,6 +88,8 @@ import BreathingExercises from './pages/BreathingExercises';
 import Meditation from './pages/Meditation';
 import Journaling from './pages/Journaling';
 import './styles/App.css';
+import { useAuth } from './contexts/AuthContext';  // Make sure this import works
+
 
 function App() {
   return (
