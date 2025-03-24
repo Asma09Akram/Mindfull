@@ -78,6 +78,141 @@ export function AuthProvider({ children }) {
 }
   */
 // const AuthContext = createContext(null);
+/*
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+
+
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
+
+  const login = async (email, password) => {
+    try {
+      // Add your login logic here
+      setCurrentUser({ email });
+      navigate('/dashboard');
+      return true;
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
+  };
+
+  const logout = () => {
+    setCurrentUser(null);
+    navigate('/login');
+  };
+
+  const value = {
+    currentUser,
+    login,
+    logout,
+    setCurrentUser
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
+
+  const login = async (email, password) => {
+    try {
+      // Your login logic here
+      setCurrentUser({ email });
+      navigate('/dashboard');
+      return true;
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
+    }
+  };
+
+  const logout = () => {
+    setCurrentUser(null);
+    navigate('/login');
+  };
+
+  const value = {
+    currentUser,
+    login,
+    logout,
+    setCurrentUser
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+};
+
+
+
+// src/routes.js
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Mindfulness from './pages/Mindfulness';
+import BreathingExercises from './pages/BreathingExercises';
+import Meditation from './pages/Meditation';
+import Journaling from './pages/Journaling';
+
+export const routes = [
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "login",
+    element: <Login />
+  },
+  {
+    path: "register",
+    element: <Register />
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />
+  },
+  {
+    path: "mindfulness",
+    element: <Mindfulness />
+  },
+  {
+    path: "breathing",
+    element: <BreathingExercises />
+  },
+  {
+    path: "meditation",
+    element: <Meditation />
+  },
+  {
+    path: "journal",
+    element: <Journaling />
+  }
+];
+*/
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
