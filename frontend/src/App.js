@@ -79,9 +79,8 @@ import BreathingExercises from './pages/BreathingExercises';
 import Meditation from './pages/Meditation';
 import Journaling from './pages/Journaling';
 import './styles/App.css';
-//import { AuthProvider } from './contexts/AuthContext';
-//import { AuthProvider } from './contexts/AuthContext';
-import AuthContext from "./contexts/AuthContext";
+import { AuthProvider } from './contexts/AuthContext';
+
 // In Register.js, Login.js, or any other component that uses useAuth
 import { useAuth } from './contexts/AuthContext';
 function App() {

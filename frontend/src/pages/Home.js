@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -52,14 +53,7 @@ const Home = () => {
           </Col>
         </Row>
 
-        <Row className="mt-5">
-          <Col className="text-center">
-            <h2>Begin Your Journey Today</h2>
-            <p>Join thousands of others who have discovered the power of mindfulness</p>
-            <Link to="/register" className="btn btn-lg btn-primary me-3">Sign Up</Link>
-            <Link to="/login" className="btn btn-lg btn-outline-primary">Login</Link>
-          </Col>
-        </Row>
+       
       </Container>
     </div>
   );
