@@ -43,3 +43,115 @@
   opacity: 0.8;
 }
 
+
+
+
+/* General Page Styling */
+
+.home-page {
+  background-color: #f8f9fa; /* Light pastel background */
+  padding: 40px 0;
+  animation: fadeInBackground 2s ease-in-out;
+}
+
+/* Header Section */
+.display-4 {
+  color: #6c757d; /* Soft gray */
+  font-weight: bold;
+  margin-bottom: 1rem;
+  animation: slideIn 1s ease-in-out;
+}
+
+.lead {
+  color: #adb5bd; /* Light gray */
+  opacity: 0.8;
+  animation: slideIn 1.5s ease-in-out;
+}
+
+/* Features Section */
+.features-section .card {
+  background-color: #43afa3; /* Light pastel orange */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.features-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.features-section .card-title {
+  color: #e9f861; /* Soft coral */
+  font-weight: bold;
+}
+
+.features-section .card-text {
+  color: #f8f9fa; /* Soft gray */
+  font-size: 0.95rem;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #45c94c; /* Soft coral */
+  border-color: #45c94c;
+  color: white;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #45c94c; /* Slightly darker coral*/
+  border-color: #45c94c;
+  transform: scale(1.05);
+}
+
+.btn-outline-primary {
+  color: hsl(315, 55%, 50%);
+  border-color: hsl(315, 55%, 50%);
+}
+
+.btn-outline-primary:hover {
+  background-color: hsl(191, 100%, 69%);
+  color: white;
+  border-color: hsl(179, 92%, 42%);
+}
+
+/* Animations */
+@keyframes fadeInBackground {
+  from {
+    background-color: #ffffff;
+  }
+  to {
+    background-color: #f8f9fa;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover Shadow Effect */
+.shadow-hover:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
