@@ -1,101 +1,133 @@
-/*
+ /* General Styles */
 .mindfulness-page {
-  padding: 40px 0;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
 }
 
-.quote-card {
-  background-color: var(--secondary-color);
+/* Header Styles */
+.rainbow-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Quote Card Styles */
+.gradient-background {
+  background: linear-gradient(135deg, #7c4dff 0%, #448aff 100%);
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
-.quote-card blockquote {
-  font-size: 1.25rem;
-  color: var(--text-color);
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+/* Tip Cards Styles */
+.gradient-card-1 {
+  background: linear-gradient(135deg, #ff7043 0%, #ff9a76 100%);
+  color: white;
+}
+
+.gradient-card-2 {
+  background: linear-gradient(135deg, #64b5f6 0%, #81d4fa 100%);
+  color: white;
+}
+
+.gradient-card-3 {
+  background: linear-gradient(135deg, #81c784 0%, #a5d6a7 100%);
+  color: white;
 }
 
 .tip-card {
-  background-color: var(--secondary-color);
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tip-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-.practice-card {
-  background-color: var(--secondary-color);
+.tip-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Exercise Section Styles */
+.zen-background {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
-.breathing-circle {
-  width: 150px;
-  height: 150px;
+.exercise-title {
+  color: #7c4dff;
+  font-weight: 700;
+}
+
+.step-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(124, 77, 255, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.step-item:hover {
+  transform: translateX(10px);
+}
+
+.step-number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #7c4dff;
+  color: white;
   border-radius: 50%;
-  background-color: var(--primary-color);
-  margin: 0 auto;
-  opacity: 0.8;
+  margin-right: 10px;
 }
 
-.breathing-circle.breathe-animation {
-  animation: breathe 8s infinite ease-in-out;
-}
-
-@keyframes breathe {
-  from {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  to {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-}
-*/
-
-.mindfulness-page {
-  padding: 2rem 0;
-}
-
-.quote-card {
-  background-color: #f9f9f9;
-  border-left: 5px solid #007bff;
-}
-
-.tip-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-}
-
-.practice-card {
-  background-color: #f8f9fa;
-}
-
+/* Breathing Circle Animation */
 .breathing-circle {
   width: 100px;
   height: 100px;
+  background: linear-gradient(45deg, #7c4dff, #448aff);
   border-radius: 50%;
-  background-color: #007bff;
-  animation: breathe 4s infinite;
+  margin: 0 auto;
+  animation: breathe 14s infinite ease-in-out;
 }
 
 @keyframes breathe {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.4); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.4); }
+}
+
+/* Shadow Effects */
+.shadow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Fade-in Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
