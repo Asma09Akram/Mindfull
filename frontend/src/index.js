@@ -1,69 +1,84 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { 
-  createBrowserRouter, 
-  RouterProvider 
-} from 'react-router-dom';
-//import { BrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+//import { createBrowserRouter } from "react-router-dom";
+
 import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AuthProvider } from './contexts/AuthContext'; // Make sure this path is correct
+import { AuthProvider } from './contexts/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
-// For react-bootstrap components
-import { 
-  Button, 
-  Form, 
-  Container 
-} from 'react-bootstrap';
+import Mindfulness from './pages/Mindfulness';
+import BreathingExercises from './pages/BreathingExercises';
+import Meditation from './pages/Meditation';
+import Journaling from './pages/Journaling';
 
-// For react-router-dom
-//import { BrowserRouter } from 'react-router-dom';
-
-// Create root and render app
-//const root = ReactDOM.createRoot(document.getElementById('root'));
-/*
-root.render(
-      <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  
-);*/
 const routes = [
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage /> // Add error handling for this route
-  },
-  {
-    path: "/login",
+  { path: "*",  // Changed from "/" to "*"
+    element: (
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,  // Use index route for home
+        element: <Home />
+      },
+      {
+    path: "login",
     element: <Login />,
     errorElement: <ErrorPage />
   },
   {
-    path: "/register",
+    path: "register",
     element: <Register />,
     errorElement: <ErrorPage />
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Dashboard />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: "mindfulness",
+    element: <Mindfulness />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "breathing",
+    element: <BreathingExercises />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "meditation",
+    element: <Meditation />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "journal",
+    element: <Journaling />,
+    errorElement: <ErrorPage />
+  }
+ 
+]
+   
   }
 ];
-
-
-const router = createBrowserRouter([
+  const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
-    
-    errorElement: <ErrorPage />, // Add error handling at the root level
+    path: "*",  // Changed from "/" to "*"
+    element: (
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    ),
+    errorElement: <ErrorPage />,
     children: routes
   }
 ], {
@@ -71,17 +86,17 @@ const router = createBrowserRouter([
     v7_startTransition: true,
     v7_relativeSplatPath: true
   }
-});
-// Create root and render app
-const root = ReactDOM.createRoot(document.getElementById('root'));
 
-//nst root = ReactDOM.createRoot(document.getElementById('root'));
+});
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </RouterProvider>
+    <RouterProvider 
+      router={router}
+      future={{
+        v7_startTransition: true
+      }}
+    />
   </React.StrictMode>
 );

@@ -1,3 +1,10 @@
+/* Container Styles */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Stats Card Styles */
 .stats-overview .stats-card {
   background-color: var(--secondary-color);
   border: none;
@@ -6,7 +13,8 @@
   transition: transform 0.3s ease;
 }
 
-.stats-overview .stats-card:hover {
+.stats-overview .stats-card:hover,
+.card:hover {
   transform: translateY(-5px);
 }
 
@@ -27,11 +35,24 @@
   opacity: 0.8;
 }
 
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card .h2 {
+  color: #007bff;
+  margin-bottom: 0;
+}
+
+/* Chart Styles */
 .mood-chart {
   height: 300px;
   margin-top: 1rem;
 }
 
+/* Action Button Styles */
 .quick-actions {
   margin-top: 2rem;
 }
@@ -41,6 +62,7 @@
   width: 100%;
 }
 
+/* Streak Indicator Styles */
 .streak-indicator {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -48,4 +70,66 @@
   color: white;
   border-radius: 20px;
   margin-top: 1rem;
+}
+
+/* Meditation History Styles */
+.meditation-history {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.meditation-session-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.meditation-session-item:last-child {
+  border-bottom: none;
+}
+
+.meditation-session-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Scrollbar Styles */
+.meditation-history::-webkit-scrollbar {
+  width: 6px;
+}
+
+.meditation-history::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.meditation-history::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.meditation-history::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .meditation-session-item {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .stats-card h2 {
+    font-size: 2rem;
+  }
+  
+  .quick-actions .btn {
+    margin-bottom: 0.3rem;
+  }
+  
+  .streak-indicator {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }

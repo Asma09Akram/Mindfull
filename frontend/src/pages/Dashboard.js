@@ -1,90 +1,89 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { useAuth } from '../contexts/AuthContext';
-import axios from 'axios';
-import '../styles/Dashboard.css';
+import { useAuth } from './contexts/AuthContext';
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
-  const [stats, setStats] = useState({
-    totalMeditations: 0,
+  const [userStats, setUserStats] = useState({
+    totalSessions: 0,
     totalMinutes: 0,
-    currentStreak: 0,
-    moodStats: []
+    streakDays: 0
   });
 
-  useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const response = await axios.get('/api/users/stats', {
-          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-        });
-        setStats(response.data);
-      } catch (error) {
-        console.error('Error fetching stats:', error);
-      }
-    };
-
-    fetchStats();
-  }, []);
+  // Sample meditation data
+  const meditationHistory = [
+    { date: '2024-03-21', duration: 10, type: 'Mindfulness' },
+    { date: '2024-03-20', duration: 15, type: 'Breathing' },
+    { date: '2024-03-19', duration: 5, type: 'Guided' }
+  ];
 
   return (
-    <Container>
-      <h1 className="mb-4">Welcome back, {currentUser.name}!</h1>
-      
-      <Row className="stats-overview">
-        <Col md={4} className="mb-4">
-          <Card className="stats-card">
+    <Container className="dashboard-container py-5">
+      {/* Welcome Section */}
+      <Row className="mb-4">
+        <Col>
+          <h1>Welcome, {currentUser?.email || 'Guest'}</h1>
+          <p>Track your meditation journey and progress</p>
+        </Col>
+      </Row>
+
+      {/* Stats Section */}
+      <Row className="mb-4">
+        <Col md={4}>
+          <Card className="mb-3">
             <Card.Body>
               <Card.Title>Total Sessions</Card.Title>
-              <h2>{stats.totalMeditations}</h2>
-              <Card.Text>meditation sessions completed</Card.Text>
+              <Card.Text className="h2">{userStats.totalSessions}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        
-        <Col md={4} className="mb-4">
-          <Card className="stats-card">
+        <Col md={4}>
+          <Card className="mb-3">
             <Card.Body>
               <Card.Title>Total Minutes</Card.Title>
-              <h2>{stats.totalMinutes}</h2>
-              <Card.Text>minutes of mindfulness</Card.Text>
+              <Card.Text className="h2">{userStats.totalMinutes}</Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        
-        <Col md={4} className="mb-4">
-          <Card className="stats-card">
+        <Col md={4}>
+          <Card className="mb-3">
             <Card.Body>
               <Card.Title>Current Streak</Card.Title>
-              <h2>{stats.currentStreak}</h2>
-              <Card.Text>days in a row</Card.Text>
+              <Card.Text className="h2">{userStats.streakDays} days</Card.Text>
             </Card.Body>
           </Card>
         </Col>
       </Row>
 
+      {/* Recent Activity Section */}
       <Row>
-        <Col md={8}>
-          <Card className="mb-4">
-            <Card.Body>
-              <Card.Title>Your Mood History</Card.Title>
-              <div className="mood-chart">
-                {/* Implement mood visualization chart here */}
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-        
-        <Col md={4}>
+        <Col>
           <Card>
+            <Card.Header>
+              <h3>Recent Meditation Sessions</h3>
+            </Card.Header>
             <Card.Body>
-              <Card.Title>Quick Actions</Card.Title>
-              <ul className="list-unstyled">
-                <li><a href="/meditation" className="btn btn-primary mb-2 w-100">Start Meditation</a></li>
-                <li><a href="/breathing" className="btn btn-outline-primary mb-2 w-100">Breathing Exercise</a></li>
-                <li><a href="/mindfulness" className="btn btn-outline-primary w-100">Practice Mindfulness</a></li>
-              </ul>
+              {meditationHistory.length > 0 ? (
+                <div className="meditation-history">
+                  {meditationHistory.map((session, index) => (
+                    <div key={index} className="meditation-session-item">
+                      <Row className="align-items-center">
+                        <Col xs={4}>
+                          <strong>{session.date}</strong>
+                        </Col>
+                        <Col xs={4}>
+                          {session.duration} minutes
+                        </Col>
+                        <Col xs={4}>
+                          {session.type}
+                        </Col>
+                      </Row>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p>No meditation sessions recorded yet.</p>
+              )}
             </Card.Body>
           </Card>
         </Col>

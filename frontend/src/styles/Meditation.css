@@ -1,55 +1,61 @@
-.meditation-page {
-  padding: 40px 0;
+/* Add these new styles to your existing Meditation.css */
+.meditation-timer-card {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.meditation-card {
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+.timer-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.meditation-card:hover {
-  transform: translateY(-5px);
-}
-
-.meditation-active-card {
-  background-color: var(--secondary-color);
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-}
-
-.progress {
-  height: 10px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.progress-bar {
-  background-color: var(--primary-color);
-  transition: width 0.5s ease;
-}
-
-.btn-primary,
-.btn-secondary {
-  padding: 0.5rem 2rem;
-  border-radius: 25px;
-  font-weight: 500;
-}
-
-.meditation-controls {
+.duration-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .time-display {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-color);
-  margin: 1rem 0;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.meditation-video-card {
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.meditation-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.embed-responsive {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .meditation-timer-card {
+    margin-top: 2rem;
+  }
+  
+  .duration-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .control-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
 }

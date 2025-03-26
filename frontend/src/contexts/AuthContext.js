@@ -1,72 +1,28 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// src/contexts/AuthContext.js
+import React, { createContext, useContext, useState } from 'react';
 
-const AuthContext = createContext();
-/*
-export function useAuth() {
-  return useContext(AuthContext);
-}
+const AuthContext = createContext(null);
 
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      // Verify token with backend
-      axios.get('/api/auth/verify', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      .then(response => {
-        setCurrentUser(response.data.user);
-      })
-      .catch(() => {
-        localStorage.removeItem('token');
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-    } else {
-      setLoading(false);
-    }
-  }, []);
-
-  const login = async (email, password) => {
-    const response = await axios.post('/api/auth/login', {
-      email,
-      password
-    });
-    const { token, user } = response.data;
-    localStorage.setItem('token', token);
-    setCurrentUser(user);
-    return user;
+  const signup = (email, password) => {
+    // Implement signup logic
   };
 
-  const register = async (email, password, name) => {
-    const response = await axios.post('/api/auth/register', {
-      email,
-      password,
-      name
-    });
-    const { token, user } = response.data;
-    localStorage.setItem('token', token);
-    setCurrentUser(user);
-    return user;
+  const login = (email, password) => {
+    // Implement login logic
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    setCurrentUser(null);
+    // Implement logout logic
   };
 
   const value = {
     currentUser,
+    signup,
     login,
-    register,
     logout
   };
 
@@ -75,184 +31,8 @@ export function AuthProvider({ children }) {
       {!loading && children}
     </AuthContext.Provider>
   );
-}
-  */
-// const AuthContext = createContext(null);
-/*
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-
-export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
-
-  const login = async (email, password) => {
-    try {
-      // Add your login logic here
-      setCurrentUser({ email });
-      navigate('/dashboard');
-      return true;
-    } catch (error) {
-      console.error('Login error:', error);
-      throw error;
-    }
-  };
-
-  const logout = () => {
-    setCurrentUser(null);
-    navigate('/login');
-  };
-
-  const value = {
-    currentUser,
-    login,
-    logout,
-    setCurrentUser
-  };
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
-
-export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
-
-  const login = async (email, password) => {
-    try {
-      // Your login logic here
-      setCurrentUser({ email });
-      navigate('/dashboard');
-      return true;
-    } catch (error) {
-      console.error('Login error:', error);
-      throw error;
-    }
-  };
-
-  const logout = () => {
-    setCurrentUser(null);
-    navigate('/login');
-  };
-
-  const value = {
-    currentUser,
-    login,
-    logout,
-    setCurrentUser
-  };
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
 };
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-
-
-// src/routes.js
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import Mindfulness from './pages/Mindfulness';
-import BreathingExercises from './pages/BreathingExercises';
-import Meditation from './pages/Meditation';
-import Journaling from './pages/Journaling';
-
-export const routes = [
-  {
-    path: "/",
-    element: <Home />
-  },
-  {
-    path: "login",
-    element: <Login />
-  },
-  {
-    path: "register",
-    element: <Register />
-  },
-  {
-    path: "dashboard",
-    element: <Dashboard />
-  },
-  {
-    path: "mindfulness",
-    element: <Mindfulness />
-  },
-  {
-    path: "breathing",
-    element: <BreathingExercises />
-  },
-  {
-    path: "meditation",
-    element: <Meditation />
-  },
-  {
-    path: "journal",
-    element: <Journaling />
-  }
-];
-*/
-
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
-
-  const login = async (email, password) => {
-    try {
-      // Add your login logic here
-      setCurrentUser({ email });
-      navigate('/dashboard');
-      return true;
-    } catch (error) {
-      console.error('Login error:', error);
-      throw error;
-    }
-  };
-
-  const logout = () => {
-    setCurrentUser(null);
-    navigate('/login');
-  };
-
-  const value = {
-    currentUser,
-    login,
-    logout,
-    setCurrentUser
-  };
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return useContext(AuthContext);
 };

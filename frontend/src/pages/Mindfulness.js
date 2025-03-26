@@ -35,64 +35,74 @@ const beginnerTips = [
 const Mindfulness = () => {
   return (
     <Container className="mindfulness-page">
-      <h1 className="text-center mb-5 fade-in">Mindfulness Practice</h1>
-      
-      <Row className="mb-5">
-        <Col lg={8} className="mx-auto">
-          <Card className="quote-card fade-in">
-            <Card.Body>
-              <blockquote className="blockquote mb-0">
-                <p>{mindfulnessQuotes[0].quote}</p>
-                <footer className="blockquote-footer">
-                  {mindfulnessQuotes[0].author}
-                </footer>
-              </blockquote>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      {/* Page Header */}
+      <header className="text-center mb-5">
+        <h1 className="fade-in">Mindfulness Practice</h1>
+        <p className="lead">Cultivate mindfulness and embrace the present moment.</p>
+      </header>
 
-      <Row className="mb-5">
-        <Col>
-          <h2 className="text-center mb-4">Getting Started with Mindfulness</h2>
-          <Row>
-            {beginnerTips.map((tip, index) => (
-              <Col md={4} key={index} className="mb-4">
-                <Card className="h-100 tip-card fade-in">
-                  <Card.Body>
-                    <Card.Title>{tip.title}</Card.Title>
-                    <Card.Text>{tip.description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
+      {/* Quote Section */}
+      <section className="quote-section mb-5">
+        <Row>
+          <Col lg={8} className="mx-auto">
+            <Card className="quote-card fade-in shadow-sm">
+              <Card.Body>
+                <blockquote className="blockquote mb-0 text-center">
+                  <p className="mb-3">"{mindfulnessQuotes[0].quote}"</p>
+                  <footer className="blockquote-footer">
+                    <cite>{mindfulnessQuotes[0].author}</cite>
+                  </footer>
+                </blockquote>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </section>
 
-      <Row>
-        <Col lg={8} className="mx-auto">
-          <Card className="practice-card">
-            <Card.Body>
-              <h3 className="text-center mb-4">Daily Mindfulness Exercise</h3>
-              <p>Find a comfortable position and follow these steps:</p>
-              <ol>
-                <li>Take a deep breath in through your nose (4 seconds)</li>
-                <li>Hold your breath (4 seconds)</li>
-                <li>Exhale slowly through your mouth (6 seconds)</li>
-                <li>Notice how your body feels</li>
-                <li>Repeat this cycle 5 times</li>
-              </ol>
-              <div className="text-center mt-4">
-                <div className="breathing-circle breathe-animation"></div>
-                <p className="mt-3">Follow the circle's rhythm</p>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      {/* Beginner Tips Section */}
+      <section className="tips-section mb-5">
+        <h2 className="text-center mb-4">Getting Started with Mindfulness</h2>
+        <Row>
+          {beginnerTips.map((tip, index) => (
+            <Col md={4} key={index} className="mb-4">
+              <Card className="h-100 tip-card fade-in shadow-sm">
+                <Card.Body>
+                  <Card.Title className="text-primary">{tip.title}</Card.Title>
+                  <Card.Text>{tip.description}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </section>
+
+      {/* Daily Exercise Section */}
+      <section className="exercise-section">
+        <Row>
+          <Col lg={8} className="mx-auto">
+            <Card className="practice-card shadow-sm">
+              <Card.Body>
+                <h3 className="text-center mb-4">Daily Mindfulness Exercise</h3>
+                <p>Find a comfortable position and follow these steps:</p>
+                <ul className="list-unstyled">
+                  <li>1. Take a deep breath in through your nose (4 seconds)</li>
+                  <li>2. Hold your breath (4 seconds)</li>
+                  <li>3. Exhale slowly through your mouth (6 seconds)</li>
+                  <li>4. Notice how your body feels</li>
+                  <li>5. Repeat this cycle 5 times</li>
+                </ul>
+                <div className="text-center mt-4">
+                  <div className="breathing-circle breathe-animation"></div>
+                  <p className="mt-3">Follow the circle's rhythm</p>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </section>
     </Container>
   );
 };
 
 export default Mindfulness;
+

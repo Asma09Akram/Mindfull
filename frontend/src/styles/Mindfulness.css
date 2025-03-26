@@ -1,3 +1,4 @@
+/*
 .mindfulness-page {
   padding: 40px 0;
 }
@@ -58,5 +59,43 @@
   to {
     transform: scale(1);
     opacity: 0.8;
+  }
+}
+*/
+
+.mindfulness-page {
+  padding: 2rem 0;
+}
+
+.quote-card {
+  background-color: #f9f9f9;
+  border-left: 5px solid #007bff;
+}
+
+.tip-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.practice-card {
+  background-color: #f8f9fa;
+}
+
+.breathing-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #007bff;
+  animation: breathe 4s infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
   }
 }
