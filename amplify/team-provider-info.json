@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mindfulme-dev-923c9-authRole",
+      "UnauthRoleArn": "arn:aws:iam::253490783614:role/amplify-mindfulme-dev-923c9-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::253490783614:role/amplify-mindfulme-dev-923c9-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-mindfulme-dev-923c9-deployment",
+      "UnauthRoleName": "amplify-mindfulme-dev-923c9-unauthRole",
+      "StackName": "amplify-mindfulme-dev-923c9",
+      "StackId": "arn:aws:cloudformation:us-east-1:253490783614:stack/amplify-mindfulme-dev-923c9/e8a6bc60-0c00-11f0-971d-126a80d0dc0b",
+      "AmplifyAppId": "d1z359xh4fozo8"
+    }
+  }
+}

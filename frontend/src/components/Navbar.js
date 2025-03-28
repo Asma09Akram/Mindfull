@@ -9,11 +9,14 @@ const Navbar = () => {
   return (
     <BootstrapNavbar bg="light" expand="lg">
       <Container>
-        <BootstrapNavbar.Brand as={Link} to="/">Mindful Me</BootstrapNavbar.Brand>
-        <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
+        {/* Add the scrolling animation class */}
+        <BootstrapNavbar.Brand className="scrolling-text">
+          Mindful Me - Your Personal Mindfulness Companion
+        </BootstrapNavbar.Brand>
+    <BootstrapNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BootstrapNavbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            
             {currentUser ? (
               <>
                 <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
@@ -24,9 +27,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                <Nav.Link as={Link} to="/register">Register</Nav.Link>
-              </>
+                       </>
             )}
           </Nav>
         </BootstrapNavbar.Collapse>
@@ -36,3 +37,10 @@ const Navbar = () => {
 };
 
 export default Navbar;
+/*
+16 <Nav.Link as={Link} to="/">Home</Nav.Link>
+
+27
+<Nav.Link as={Link} to="/login">Login</Nav.Link>
+                <Nav.Link as={Link} to="/register">Register</Nav.Link>
+       */

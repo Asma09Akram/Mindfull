@@ -26,8 +26,8 @@ const beginnerTips = [
     description: "Begin with just 5 minutes of mindfulness practice each day. Gradually increase the duration as you become more comfortable."
   },
   {
-    title: "Focus on Breath",
-    description: "Use your breath as an anchor. Notice the sensation of breathing in and out."
+    title: "Affirmation",
+    description: "I am safe and surrounded by love and support."
   },
   {
     title: "Be Kind to Yourself",

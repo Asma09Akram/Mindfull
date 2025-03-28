@@ -13,9 +13,9 @@ const Dashboard = () => {
 
   // Sample meditation data
   const meditationHistory = [
-    { date: '2024-03-21', duration: 10, type: 'Mindfulness' },
-    { date: '2024-03-20', duration: 15, type: 'Breathing' },
-    { date: '2024-03-19', duration: 5, type: 'Guided' }
+    { date: '2025-03-21', duration: 10, type: 'Mindfulness' },
+    { date: '2025-03-20', duration: 15, type: 'Breathing' },
+    { date: '2025-03-19', duration: 5, type: 'Guided' }
   ];
 
   return (

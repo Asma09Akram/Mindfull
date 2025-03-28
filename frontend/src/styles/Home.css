@@ -1,4 +1,3 @@
-
 .home-page {
   padding: 40px 0;
 }
@@ -49,21 +48,21 @@
 /* General Page Styling */
 
 .home-page {
-  background-color: #f8f9fa; /* Light pastel background */
+  background-color: #caddf0; /* Light pastel background */
   padding: 40px 0;
   animation: fadeInBackground 2s ease-in-out;
 }
 
 /* Header Section */
 .display-4 {
-  color: #6c757d; /* Soft gray */
+  color: #e7a74d; /* Soft gray */
   font-weight: bold;
   margin-bottom: 1rem;
   animation: slideIn 1s ease-in-out;
 }
 
 .lead {
-  color: #adb5bd; /* Light gray */
+  color: #0c0516; /* Light gray */
   opacity: 0.8;
   animation: slideIn 1.5s ease-in-out;
 }
