@@ -11,7 +11,7 @@ commands:
   - id: build
     exec:
       component: dev
-      commandLine: "cd frontend && npm run build"
+      commandLine: "cd frontend && npm run build && ls -la dist"
   - id: test
     exec:
       component: dev
